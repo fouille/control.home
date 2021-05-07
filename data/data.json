@@ -5,18 +5,27 @@
       {
         "id": "swt_ext_terr_bnb",
         "cmd_id": "9898",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
         "refresh_id": "1315",
         "name": "Terrasse BnB"
       },
       {
         "id": "swt_ext_hamac",
         "cmd_id": "909",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
         "refresh_id": "945",
         "name": "Hamac"
       },
       {
         "id": "swt_ext_chem",
         "cmd_id": "1214",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
         "refresh_id": "1233",
         "name": "Chemin"
       }
@@ -25,18 +34,27 @@
       {
         "id": "swt_ext_terr",
         "cmd_id": "1252",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
         "refresh_id": "1250",
         "name": "Terrasse"
       },
       {
         "id": "swt_ext_terr_lum",
         "cmd_id": "1337",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
         "refresh_id": "1352",
         "name": "Terrasse Lumière"
       },
       {
         "id": "swt_ext_bassin",
         "cmd_id": "1162",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
         "refresh_id": "1160",
         "name": "Bassin"
       }
@@ -48,6 +66,9 @@
       {
         "id": "swt_salon",
         "cmd_id": "15",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
         "refresh_id": "13",
         "name": "Salon",
         "temp": "1",
@@ -59,6 +80,9 @@
       {
         "id": "swt_cuisine",
         "cmd_id": "1387",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
         "refresh_id": "1383",
         "name": "Cuisine",
         "temp": "0",
@@ -70,6 +94,9 @@
       {
         "id": "swt_sdb",
         "cmd_id": "1325",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
         "refresh_id": "1320",
         "name": "SdB",
         "temp": "0",
@@ -83,6 +110,9 @@
       {
         "id": "swt_room",
         "cmd_id": "815",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
         "refresh_id": "871",
         "name": "Chambre",
         "temp": "1",
@@ -99,6 +129,9 @@
       {
         "id": "",
         "cmd_id": "",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
         "refresh_id": "",
         "name": "Étage",
         "temp": "1",
@@ -110,6 +143,9 @@
       {
         "id": "swt_bnb_cum",
         "cmd_id": "1168",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
         "refresh_id": "1166",
         "name": "Cumulus",
         "temp": "0",
@@ -123,6 +159,9 @@
       {
         "id": "",
         "cmd_id": "",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
         "refresh_id": "",
         "name": "RdC",
         "temp": "1",
