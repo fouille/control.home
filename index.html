@@ -86,11 +86,6 @@
 
 <script>
     $(document).ready(function() {
-        //temp
-        var Jeedom_url = "192.168.8.200"; //demo IP replace by your IP
-        var Jeedom_API = "lLmv2M8w7EdLRMuW9UgdwOBch37NRElb"; //demo key replace by your Key
-        localStorage.setItem('Jeedom_url', Jeedom_url);
-        localStorage.setItem('Jeedom_API', Jeedom_API);
         //date-time
         date_time();
         setInterval(date_time, 1000);
@@ -107,6 +102,9 @@
                 var c = e.bloc_left.panel_right;
                 var f = e.bloc_cached.panel_left;
                 var g = e.bloc_cached.panel_right;
+                //store global conf
+                localStorage.setItem('Jeedom_url', e.global.jeedom_ip);
+                localStorage.setItem('Jeedom_API', e.global.jeedom_apikey);
                 //naming blocks
                 $(".bloc_left_name").text(e.bloc_left.name);
                 $(".bloc_right_name").text(e.bloc_right.name);

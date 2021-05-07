@@ -1,4 +1,8 @@
 {
+  "global": {
+    "jeedom_ip": "192.168.8.200",
+    "jeedom_apikey": "lLmv2M8w7EdLRMuW9UgdwOBch37NRElb"
+  },
   "bloc_right": {
     "name": "Extérieur",
     "panel_left": [
