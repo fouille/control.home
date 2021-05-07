@@ -66,9 +66,9 @@
       {
         "id": "swt_salon",
         "cmd_id": "15",
-        "cmd_id_tog": "1",
-        "cmd_id_on": "",
-        "cmd_id_off": "",
+        "cmd_id_tog": "0",
+        "cmd_id_on": "15",
+        "cmd_id_off": "14",
         "refresh_id": "13",
         "name": "Salon",
         "temp": "1",
