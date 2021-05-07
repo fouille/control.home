@@ -1,0 +1,133 @@
+{
+  "bloc_right": {
+    "panel_left": [
+      {
+        "id": "swt_ext_terr_bnb",
+        "cmd_id": "9898",
+        "refresh_id": "1315",
+        "name": "Terrasse BnB"
+      },
+      {
+        "id": "swt_ext_hamac",
+        "cmd_id": "909",
+        "refresh_id": "945",
+        "name": "Hamac"
+      },
+      {
+        "id": "swt_ext_chem",
+        "cmd_id": "1214",
+        "refresh_id": "1233",
+        "name": "Chemin"
+      }
+    ],
+    "panel_right": [
+      {
+        "id": "swt_ext_terr",
+        "cmd_id": "1252",
+        "refresh_id": "1250",
+        "name": "Terrasse"
+      },
+      {
+        "id": "swt_ext_terr_lum",
+        "cmd_id": "1337",
+        "refresh_id": "1352",
+        "name": "Terrasse Lumière"
+      },
+      {
+        "id": "swt_ext_bassin",
+        "cmd_id": "1162",
+        "refresh_id": "1160",
+        "name": "Bassin"
+      }
+    ]
+  },
+  "bloc_left": {
+    "panel_left": [
+      {
+        "id": "swt_salon",
+        "cmd_id": "15",
+        "refresh_id": "13",
+        "name": "Salon",
+        "temp": "1",
+        "temp_id": "temp_salon",
+        "temp_refresh_id": "1564",
+        "hum_id": "hum_salon",
+        "hum_refresh_id": "1565"
+      },
+      {
+        "id": "swt_cuisine",
+        "cmd_id": "1387",
+        "refresh_id": "1383",
+        "name": "Cuisine",
+        "temp": "0",
+        "temp_id": "",
+        "temp_refresh_id": "",
+        "hum_id": "",
+        "hum_refresh_id": ""
+      },
+      {
+        "id": "swt_sdb",
+        "cmd_id": "1325",
+        "refresh_id": "1320",
+        "name": "SdB",
+        "temp": "0",
+        "temp_id": "",
+        "temp_refresh_id": "",
+        "hum_id": "",
+        "hum_refresh_id": ""
+      }
+    ],
+    "panel_right": [
+      {
+        "id": "swt_room",
+        "cmd_id": "815",
+        "refresh_id": "871",
+        "name": "Chambre",
+        "temp": "1",
+        "temp_id": "temp_room",
+        "temp_refresh_id": "1559",
+        "hum_id": "hum_room",
+        "hum_refresh_id": "1560"
+      }
+    ]
+  },
+  "bloc_cached": {
+    "panel_left": [
+      {
+        "id": "",
+        "cmd_id": "",
+        "refresh_id": "",
+        "name": "Étage",
+        "temp": "1",
+        "temp_id": "temp_bnb_etag",
+        "temp_refresh_id": "1573",
+        "hum_id": "hum_bnb_etag",
+        "hum_refresh_id": "1574"
+      },
+      {
+        "id": "swt_bnb_cum",
+        "cmd_id": "1168",
+        "refresh_id": "1166",
+        "name": "Cumulus",
+        "temp": "0",
+        "temp_id": "",
+        "temp_refresh_id": "",
+        "hum_id": "",
+        "hum_refresh_id": ""
+      }
+    ],
+    "panel_right": [
+      {
+        "id": "",
+        "cmd_id": "",
+        "refresh_id": "",
+        "name": "RdC",
+        "temp": "1",
+        "temp_id": "temp_bnb_rdc",
+        "temp_refresh_id": "1582",
+        "hum_id": "hum_bnb_rdc",
+        "hum_refresh_id": "1583"
+      }
+    ]
+  }
+}
