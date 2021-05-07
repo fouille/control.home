@@ -85,25 +85,11 @@
         "cmd_id_off": "",
         "refresh_id": "1383",
         "name": "Cuisine",
-        "temp": "0",
-        "temp_id": "",
-        "temp_refresh_id": "",
-        "hum_id": "",
-        "hum_refresh_id": ""
-      },
-      {
-        "id": "swt_sdb",
-        "cmd_id": "1325",
-        "cmd_id_tog": "1",
-        "cmd_id_on": "",
-        "cmd_id_off": "",
-        "refresh_id": "1320",
-        "name": "SdB",
-        "temp": "0",
-        "temp_id": "",
-        "temp_refresh_id": "",
-        "hum_id": "",
-        "hum_refresh_id": ""
+        "temp": "1",
+        "temp_id": "temp_home_kitchen",
+        "temp_refresh_id": "1595",
+        "hum_id": "hum_home_kitchen",
+        "hum_refresh_id": "1596"
       }
     ],
     "panel_right": [
@@ -120,6 +106,20 @@
         "temp_refresh_id": "1559",
         "hum_id": "hum_room",
         "hum_refresh_id": "1560"
+      },
+      {
+        "id": "swt_sdb",
+        "cmd_id": "1325",
+        "cmd_id_tog": "1",
+        "cmd_id_on": "",
+        "cmd_id_off": "",
+        "refresh_id": "1320",
+        "name": "SdB",
+        "temp": "1",
+        "temp_id": "temp_home_bath",
+        "temp_refresh_id": "1546",
+        "hum_id": "hum_home_bath",
+        "hum_refresh_id": "1545"
       }
     ]
   },
@@ -143,9 +143,9 @@
       {
         "id": "swt_bnb_cum",
         "cmd_id": "1168",
-        "cmd_id_tog": "1",
-        "cmd_id_on": "",
-        "cmd_id_off": "",
+        "cmd_id_tog": "0",
+        "cmd_id_on": "1168",
+        "cmd_id_off": "1169",
         "refresh_id": "1166",
         "name": "Cumulus",
         "temp": "0",
