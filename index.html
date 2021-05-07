@@ -125,6 +125,11 @@
 
 <script>
     $(document).ready(function() {
+        //temp
+        var Jeedom_url = "192.168.8.200"; //demo IP
+        var Jeedom_API = "lLmv2M8w7EdLRMuW9UgdwOBch37NRElb"; //demo key
+        localStorage.setItem('Jeedom_url', Jeedom_url);
+        localStorage.setItem('Jeedom_API', Jeedom_API);
         //date-time
         var dtime = moment().format('MMMM Do YYYY, h:mm:ss a');
         console.log(dtime);
@@ -414,7 +419,7 @@
     //update modules function
     function temp_state(cmd_id, switch_id) {
         $.ajax({
-            url: "http://192.168.8.200/core/api/jeeApi.php?apikey=lLmv2M8w7EdLRMuW9UgdwOBch37NRElb&type=cmd&id="+cmd_id,
+            url: "http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+cmd_id,
             type: "GET",
             dataType: "json",
             success: function (r) {
@@ -425,7 +430,7 @@
     }
     function switch_state(cmd_id, switch_id){
         $.ajax({
-            url: "http://192.168.8.200/core/api/jeeApi.php?apikey=lLmv2M8w7EdLRMuW9UgdwOBch37NRElb&type=cmd&id="+cmd_id,
+            url: "http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+cmd_id,
             type: "GET",
             dataType: "json",
             success: function (r) {
