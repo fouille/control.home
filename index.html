@@ -211,7 +211,6 @@
                     $(".add_modules_l_left").append(append);
                     let n = value.id.startsWith("swt");
                     if (n === true){
-                        console.log(value.cmd_id_tog+' '+ value.cmd_id_on+' '+ value.cmd_id_off);
                         switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
                     }
                     if (value.temp === "1"){
@@ -312,15 +311,12 @@
             let cmd_id_tog = $(this).attr("cmd-id-tog");
             let cmd_id_on = $(this).attr("cmd-id-on");
             let cmd_id_off = $(this).attr("cmd-id-off");
-            //console.log(cmd_id+' '+swt_id);
             $.ajax({
                 url: "http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+cmd_id,
                 type: "GET",
                 dataType: "json",
                 success: function (r) {
-                    // console.log(r);
                     if (r == 0){
-                       //let response = switch_state (1383, "swt_cuisine");
                         setTimeout(function(){switch_state (refresh_id, cmd_id_tog, cmd_id_on, cmd_id_off, swt_id)},700);
                     }
                     else{
@@ -441,35 +437,20 @@
             type: "GET",
             dataType: "json",
             success: function (r) {
-                console.log(r+' '+cmd_id_tog+' '+cmd_id_on+' '+cmd_id_off);
                 if (r == 0){
-                    // $("#"+switch_id).text("OFF").attr("style", "background-color: #434bdf");
                     $("#"+switch_id+" .card").attr("style", "background-color: #434bdf!important");
                     $("#"+switch_id+" .card-text").text("Éteind");
                     if (cmd_id_tog === "0"){
                         $("#"+switch_id).attr("cmd-id", cmd_id_on)
                     }
-                    // if (switch_id === "swt_salon"){
-                    //     $("#"+switch_id).attr("cmd-id", "15")
-                    // }
-                    // if (switch_id === "swt_bnb_cum"){
-                    //     $("#"+switch_id).attr("cmd-id", "1168")
-                    // }
                 }
                 if (r == 1){
-                    //$("#"+switch_id).text("ON").attr("style", "background-color: #d80075")
                     $("#"+switch_id+" .card").attr("style", "background-color: #d80075!important");
                     $("#"+switch_id+" .card-text").text("Allumé");
                     if (cmd_id_tog === "0"){
                         $("#"+switch_id).attr("cmd-id", cmd_id_off);
                         console.log(switch_id+' '+cmd_id_tog+' '+cmd_id_on+' '+cmd_id_off);
                     }
-                    // if (switch_id === "swt_salon"){
-                    //     $("#"+switch_id).attr("cmd-id", "14")
-                    // }
-                    // if (switch_id === "swt_bnb_cum"){
-                    //     $("#"+switch_id).attr("cmd-id", "1169")
-                    // }
                 }
             }
         })
