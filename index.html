@@ -11,21 +11,13 @@
 
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
-
     <!-- BASE CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/menu.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/vendors.css" rel="stylesheet">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-
     <!-- YOUR CUSTOM CSS -->
     <link href="css/custom.css" rel="stylesheet">
-
-    <!-- MODERNIZR MENU -->
-    <script src="js/modernizr.js"></script>
-
 </head>
 <body>
 
@@ -44,84 +36,52 @@
                 <a href="index.html" id="logo" class="dtime"></a>
                 <div id="social">
                     <ul>
-                        <li><a href="#" id="open_bnb"><i class="icon-twitter"></i></a></li>
+                        <li><a href="#" id="open_bnb" class="btn btn-primary">+</a></li>
                     </ul>
                 </div>
                 <div>
                     <figure><img src="img/info_graphic_1.svg" alt="" class="img-fluid"></figure>
                     <h2 class="bloc_left_name"></h2>
-                    <div class="col-lg-6 float-left add_modules_l_left">
-
-                    </div>
-                    <div class="col-lg-6 float-right add_modules_l_right">
-
-                    </div>
-
+                    <div class="col-lg-6 float-left add_modules_l_left"></div>
+                    <div class="col-lg-6 float-right add_modules_l_right"></div>
                 </div>
                 <div class="copy"></div>
             </div>
             <!-- /content-left-wrapper -->
         </div>
         <!-- /content-left -->
-        <div id="panel_ext" class="panel_switch col-lg-6 " style="padding: 0">
-            <div class="" style="   display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    text-align: center;
-                                    height: 100%;
-                                    min-height: 100%;
-                                    padding: 60px 90px 35px 90px;
-                                    text-align: center;
-                                    position: relative;">
-                <div>
-                    <figure><img src="img/info_graphic_2.svg" alt="" class="img-fluid"></figure>
-                    <h2 class="bloc_right_name"></h2>
-                    <div class="col-lg-6 float-left add_modules_r_left">
-
+        <div class="col-lg-6 content-right" id="start" style="padding: 60px 90px 35px 90px;text-align: center;">
+            <div id="wizard_container">
+                <div id="middle-wizard">
+                    <div class="step">
+                        <div id="panel_ext">
+                            <figure><img src="img/info_graphic_2.svg" alt="" class="img-fluid"></figure>
+                            <h2 class="bloc_right_name"></h2>
+                            <div class="col-lg-6 float-left add_modules_r_left"></div>
+                            <div class="col-lg-6 float-right add_modules_r_right"></div>
+                        </div>
+                        <!-- /row -->
                     </div>
-                    <div class="col-lg-6 float-right add_modules_r_right">
-
-                    </div>
-
-                </div>
-            </div>
-            <!-- /content-left-wrapper -->
-        </div>
-        <div id="panel_bnb" class="panel_switch col-lg-6 d-none" style="padding: 0">
-            <div class="" style="   display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    text-align: center;
-                                    height: 100%;
-                                    min-height: 100%;
-                                    padding: 60px 90px 35px 90px;
-                                    text-align: center;
-                                    position: relative;">
-                <div>
-                    <figure><img src="img/info_graphic_3.svg" alt="" class="img-fluid"></figure>
-                    <h2 class="bloc_cached_name"></h2>
-                    <div class="col-lg-6 float-left add_modules_c_left">
-
-                    </div>
-                    <div class="col-lg-6 float-right add_modules_c_right">
-
+                    <!-- /step-->
+                    <div class="step">
+                        <div id="panel_bnb">
+                            <figure><img src="img/info_graphic_3.svg" alt="" class="img-fluid"></figure>
+                            <h2 class="bloc_cached_name"></h2>
+                            <div class="col-lg-6 float-left add_modules_c_left"></div>
+                            <div class="col-lg-6 float-right add_modules_c_right"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- /content-left-wrapper -->
         </div>
-
     </div>
 </div>
 
 <!-- COMMON SCRIPTS -->
 
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="js/moment-with-locales.js"></script>
-<!--<script src="js/common_scripts.min.js"></script>-->
-<!--<script src="js/velocity.min.js"></script>-->
+<script src="js/velocity.min.js"></script>
 <script src="js/functions.js"></script>
 
 <script>
@@ -133,7 +93,7 @@
         localStorage.setItem('Jeedom_API', Jeedom_API);
         //date-time
         date_time();
-        setInterval(date_time, 60000)
+        setInterval(date_time, 1000);
         //start call for create and update blocks
         $.ajax({
             url: "data/data.json?v=0.1.81",
@@ -298,10 +258,20 @@
         // update modules
         setInterval(update_page, 60000);
         // cached block
+        $("#panel_bnb").hide();
         $("#open_bnb").on('click', function () {
-            $("#panel_ext").toggleClass("d-none");
-            $("#panel_bnb").toggleClass("d-none");
+            //$(this).toggleAttribute("text", "-", "+");
+            var x = document.getElementById("open_bnb");
+            if (x.innerHTML === "+") {
+                x.innerHTML = "-";
+                $(this).attr("style", "background-color: #d80075!important");
 
+            } else {
+                x.innerHTML = "+";
+                $(this).attr("style", "background-color: #007bff!important");
+            }
+            $("#panel_ext").toggle(800);
+            $("#panel_bnb").toggle(800);
         });
         // click modules on/off
         $(document).on('click','a[id^="swt_"]', function (e) {
@@ -326,7 +296,6 @@
                 }
             })
         })
-
     });
     function date_time() {
         $(".dtime").text(moment().locale('fr').format('LLLL'));
