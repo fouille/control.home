@@ -41,6 +41,7 @@
     <div class="row row-height">
         <div class="col-lg-6 content-left">
             <div class="content-left-wrapper">
+                <a href="index.html" id="logo" class="dtime"></a>
                 <div id="social">
                     <ul>
                         <li><a href="#" id="open_bnb"><i class="icon-twitter"></i></a></li>
@@ -48,7 +49,7 @@
                 </div>
                 <div>
                     <figure><img src="img/info_graphic_1.svg" alt="" class="img-fluid"></figure>
-                    <h2>Intérieur</h2>
+                    <h2 class="bloc_left_name"></h2>
                     <div class="col-lg-6 float-left add_modules_l_left">
 
                     </div>
@@ -74,7 +75,7 @@
                                     position: relative;">
                 <div>
                     <figure><img src="img/info_graphic_2.svg" alt="" class="img-fluid"></figure>
-                    <h2>Extérieur</h2>
+                    <h2 class="bloc_right_name"></h2>
                     <div class="col-lg-6 float-left add_modules_r_left">
 
                     </div>
@@ -98,7 +99,7 @@
                                     position: relative;">
                 <div>
                     <figure><img src="img/info_graphic_3.svg" alt="" class="img-fluid"></figure>
-                    <h2>AirBnB</h2>
+                    <h2 class="bloc_cached_name"></h2>
                     <div class="col-lg-6 float-left add_modules_c_left">
 
                     </div>
@@ -118,7 +119,7 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="js/moment.min.js"></script>
+<script src="js/moment-with-locales.js"></script>
 <!--<script src="js/common_scripts.min.js"></script>-->
 <!--<script src="js/velocity.min.js"></script>-->
 <script src="js/functions.js"></script>
@@ -126,17 +127,17 @@
 <script>
     $(document).ready(function() {
         //temp
-        var Jeedom_url = "192.168.8.200"; //demo IP
-        var Jeedom_API = "lLmv2M8w7EdLRMuW9UgdwOBch37NRElb"; //demo key
+        var Jeedom_url = "192.168.8.200"; //demo IP replace by your IP
+        var Jeedom_API = "lLmv2M8w7EdLRMuW9UgdwOBch37NRElb"; //demo key replace by your Key
         localStorage.setItem('Jeedom_url', Jeedom_url);
         localStorage.setItem('Jeedom_API', Jeedom_API);
         //date-time
-        var dtime = moment().format('MMMM Do YYYY, h:mm:ss a');
+        var dtime = moment().locale('fr').format('LLLL');
         console.log(dtime);
-        $(".dtime").html(dtime);
+        $(".dtime").text(dtime);
         //start call for create and update blocks
         $.ajax({
-            url: "data/data.json?v=0.1.7",
+            url: "data/data.json?v=0.1.81",
             type: "GET",
             dataType: "json",
             success: function (e) {
@@ -147,6 +148,10 @@
                 var c = e.bloc_left.panel_right;
                 var f = e.bloc_cached.panel_left;
                 var g = e.bloc_cached.panel_right;
+                //naming blocks
+                $(".bloc_left_name").text(e.bloc_left.name);
+                $(".bloc_right_name").text(e.bloc_right.name);
+                $(".bloc_cached_name").text(e.bloc_cached.name);
 
                 //right block
                 $.each(r, function(key,value) {

@@ -1,5 +1,6 @@
 {
   "bloc_right": {
+    "name": "blabla",
     "panel_left": [
       {
         "id": "swt_ext_terr_bnb",
@@ -42,6 +43,7 @@
     ]
   },
   "bloc_left": {
+    "name" : "Intérieur",
     "panel_left": [
       {
         "id": "swt_salon",
@@ -92,6 +94,7 @@
     ]
   },
   "bloc_cached": {
+    "name": "AirBnB",
     "panel_left": [
       {
         "id": "",

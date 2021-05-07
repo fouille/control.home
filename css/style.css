@@ -457,6 +457,7 @@ a#logo {
   top: 15px;
   display: block;
   height: 35px;
+  color: white;
 }
 @media (max-width: 991px) {
   a#logo {
