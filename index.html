@@ -314,7 +314,7 @@
             let cmd_id_off = $(this).attr("cmd-id-off");
             //console.log(cmd_id+' '+swt_id);
             $.ajax({
-                url: "http://192.168.8.200/core/api/jeeApi.php?apikey=lLmv2M8w7EdLRMuW9UgdwOBch37NRElb&type=cmd&id="+cmd_id,
+                url: "http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+cmd_id,
                 type: "GET",
                 dataType: "json",
                 success: function (r) {
