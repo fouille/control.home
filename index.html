@@ -132,9 +132,7 @@
         localStorage.setItem('Jeedom_url', Jeedom_url);
         localStorage.setItem('Jeedom_API', Jeedom_API);
         //date-time
-        var dtime = moment().locale('fr').format('LLLL');
-        console.log(dtime);
-        $(".dtime").text(dtime);
+        $(".dtime").text(moment().locale('fr').format('LLLL'));
         //start call for create and update blocks
         $.ajax({
             url: "data/data.json?v=0.1.81",
