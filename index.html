@@ -154,7 +154,7 @@
                 //right block
                 $.each(r, function(key,value) {
 
-                    append = '<a href="#" id="'+value.id+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
+                    append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
                         '                            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">\n' +
                         '                                <div class="card-body">\n' +
                         '                                    <h5 class="card-title">'+value.name+'</h5>\n' +
@@ -167,7 +167,7 @@
                     let n = value.id.startsWith("swt");
                     let nn = value.id.startsWith("temp");
                     if (n === true){
-                        switch_state(value.refresh_id, value.id);
+                        switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
                     }
                     if (nn === true){
                         temp_state(value.refresh_id, value.id);
@@ -175,7 +175,7 @@
 
                 });
                 $.each(d, function(key,value) {
-                    append = '<a href="#" id="'+value.id+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
+                    append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
                         '                            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">\n' +
                         '                                <div class="card-body">\n' +
                         '                                    <h5 class="card-title">'+value.name+'</h5>\n' +
@@ -187,7 +187,7 @@
                     let n = value.id.startsWith("swt");
                     let nn = value.id.startsWith("temp");
                     if (n === true){
-                        switch_state(value.refresh_id, value.id);
+                        switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
                     }
                     if (nn === true){
                         temp_state(value.refresh_id, value.id);
@@ -200,7 +200,7 @@
                     if (value.temp === "1"){
                         append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>%</small>';
                     }
-                    append = '<a href="#" id="'+value.id+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
+                    append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
                         '                            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">\n' +
                         '                                <div class="card-body">\n' +
                         '                                    <h5 class="card-title">'+value.name+'</h5>\n' +
@@ -211,7 +211,8 @@
                     $(".add_modules_l_left").append(append);
                     let n = value.id.startsWith("swt");
                     if (n === true){
-                        switch_state(value.refresh_id, value.id);
+                        console.log(value.cmd_id_tog+' '+ value.cmd_id_on+' '+ value.cmd_id_off);
+                        switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
                     }
                     if (value.temp === "1"){
                         temp_state(value.temp_refresh_id, value.temp_id);
@@ -223,7 +224,7 @@
                     if (value.temp === "1"){
                         append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>%</small>';
                     }
-                    append = '<a href="#" id="'+value.id+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
+                    append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
                         '                            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">\n' +
                         '                                <div class="card-body">\n' +
                         '                                    <h5 class="card-title">'+value.name+'</h5>\n' +
@@ -234,7 +235,7 @@
                     $(".add_modules_l_right").append(append);
                     let n = value.id.startsWith("swt");
                     if (n === true){
-                        switch_state(value.refresh_id, value.id);
+                        switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
                     }
                     if (value.temp === "1"){
                         temp_state(value.temp_refresh_id, value.temp_id);
@@ -248,7 +249,7 @@
                     if (value.temp === "1"){
                         append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>%</small>';
                     }
-                    append = '<a href="#" id="'+value.id+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
+                    append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
                         '                            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">\n' +
                         '                                <div class="card-body">\n' +
                         '                                    <h5 class="card-title">'+value.name+'</h5>\n' +
@@ -259,7 +260,7 @@
                     $(".add_modules_c_left").append(append);
                     let n = value.id.startsWith("swt");
                     if (n === true){
-                        switch_state(value.refresh_id, value.id);
+                        switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
                     }
                     if (value.temp === "1"){
                         temp_state(value.temp_refresh_id, value.temp_id);
@@ -271,7 +272,7 @@
                     if (value.temp === "1"){
                         append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>%</small>';
                     }
-                    append = '<a href="#" id="'+value.id+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
+                    append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
                         '                            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">\n' +
                         '                                <div class="card-body">\n' +
                         '                                    <h5 class="card-title">'+value.name+'</h5>\n' +
@@ -282,7 +283,7 @@
                     $(".add_modules_c_right").append(append);
                     let n = value.id.startsWith("swt");
                     if (n === true){
-                        switch_state(value.refresh_id, value.id);
+                        switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
                     }
                     if (value.temp === "1"){
                         temp_state(value.temp_refresh_id, value.temp_id);
@@ -308,6 +309,9 @@
             let cmd_id = $(this).attr("cmd-id");
             let refresh_id = $(this).attr("refresh-id");
             let swt_id = $(this).attr("id");
+            let cmd_id_tog = $(this).attr("cmd-id-tog");
+            let cmd_id_on = $(this).attr("cmd-id-on");
+            let cmd_id_off = $(this).attr("cmd-id-off");
             //console.log(cmd_id+' '+swt_id);
             $.ajax({
                 url: "http://192.168.8.200/core/api/jeeApi.php?apikey=lLmv2M8w7EdLRMuW9UgdwOBch37NRElb&type=cmd&id="+cmd_id,
@@ -317,7 +321,7 @@
                     // console.log(r);
                     if (r == 0){
                        //let response = switch_state (1383, "swt_cuisine");
-                        setTimeout(function(){switch_state (refresh_id, swt_id)},700);
+                        setTimeout(function(){switch_state (refresh_id, cmd_id_tog, cmd_id_on, cmd_id_off, swt_id)},700);
                     }
                     else{
                         $("#switch").text("error")
@@ -330,7 +334,7 @@
     //update page modules
     function update_page() {
         $.ajax({
-            url: "data/data.json?v=0.1.6",
+            url: "data/data.json?v=0.1.7",
             type: "GET",
             dataType: "json",
             success: function (e) {
@@ -344,7 +348,7 @@
                 $.each(r, function(key,value) {
                     let n = value.id.startsWith("swt");
                     if (n === true){
-                        switch_state(value.refresh_id, value.id);
+                        switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
                     }
                     if (value.temp === "1"){
                         temp_state(value.temp_refresh_id, value.temp_id);
@@ -354,7 +358,7 @@
                 $.each(d, function(key,value) {
                     let n = value.id.startsWith("swt");
                     if (n === true){
-                        switch_state(value.refresh_id, value.id);
+                        switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
                     }
                     if (value.temp === "1"){
                         temp_state(value.temp_refresh_id, value.temp_id);
@@ -364,7 +368,7 @@
                 $.each(b, function(key,value) {
                     let n = value.id.startsWith("swt");
                     if (n === true){
-                        switch_state(value.refresh_id, value.id);
+                        switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
                     }
                     if (value.temp === "1"){
                         temp_state(value.temp_refresh_id, value.temp_id);
@@ -374,7 +378,7 @@
                 $.each(c, function(key,value) {
                     let n = value.id.startsWith("swt");
                     if (n === true){
-                        switch_state(value.refresh_id, value.id);
+                        switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
                     }
                     if (value.temp === "1"){
                         temp_state(value.temp_refresh_id, value.temp_id);
@@ -384,7 +388,7 @@
                 $.each(f, function(key,value) {
                     let n = value.id.startsWith("swt");
                     if (n === true){
-                        switch_state(value.refresh_id, value.id);
+                        switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
                     }
                     if (value.temp === "1"){
                         temp_state(value.temp_refresh_id, value.temp_id);
@@ -394,7 +398,7 @@
                 $.each(g, function(key,value) {
                     let n = value.id.startsWith("swt");
                     if (n === true){
-                        switch_state(value.refresh_id, value.id);
+                        switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
                     }
                     if (value.temp === "1"){
                         temp_state(value.temp_refresh_id, value.temp_id);
@@ -431,34 +435,41 @@
             }
         })
     }
-    function switch_state(cmd_id, switch_id){
+    function switch_state(refresh_id, cmd_id_tog, cmd_id_on, cmd_id_off, switch_id){
         $.ajax({
-            url: "http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+cmd_id,
+            url: "http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+refresh_id,
             type: "GET",
             dataType: "json",
             success: function (r) {
-                // console.log(r);
+                console.log(r+' '+cmd_id_tog+' '+cmd_id_on+' '+cmd_id_off);
                 if (r == 0){
                     // $("#"+switch_id).text("OFF").attr("style", "background-color: #434bdf");
                     $("#"+switch_id+" .card").attr("style", "background-color: #434bdf!important");
                     $("#"+switch_id+" .card-text").text("Éteind");
-                    if (switch_id === "swt_salon"){
-                        $("#"+switch_id).attr("cmd-id", "15")
+                    if (cmd_id_tog === "0"){
+                        $("#"+switch_id).attr("cmd-id", cmd_id_on)
                     }
-                    if (switch_id === "swt_bnb_cum"){
-                        $("#"+switch_id).attr("cmd-id", "1168")
-                    }
+                    // if (switch_id === "swt_salon"){
+                    //     $("#"+switch_id).attr("cmd-id", "15")
+                    // }
+                    // if (switch_id === "swt_bnb_cum"){
+                    //     $("#"+switch_id).attr("cmd-id", "1168")
+                    // }
                 }
                 if (r == 1){
                     //$("#"+switch_id).text("ON").attr("style", "background-color: #d80075")
                     $("#"+switch_id+" .card").attr("style", "background-color: #d80075!important");
                     $("#"+switch_id+" .card-text").text("Allumé");
-                    if (switch_id === "swt_salon"){
-                        $("#"+switch_id).attr("cmd-id", "14")
+                    if (cmd_id_tog === "0"){
+                        $("#"+switch_id).attr("cmd-id", cmd_id_off);
+                        console.log(switch_id+' '+cmd_id_tog+' '+cmd_id_on+' '+cmd_id_off);
                     }
-                    if (switch_id === "swt_bnb_cum"){
-                        $("#"+switch_id).attr("cmd-id", "1169")
-                    }
+                    // if (switch_id === "swt_salon"){
+                    //     $("#"+switch_id).attr("cmd-id", "14")
+                    // }
+                    // if (switch_id === "swt_bnb_cum"){
+                    //     $("#"+switch_id).attr("cmd-id", "1169")
+                    // }
                 }
             }
         })
