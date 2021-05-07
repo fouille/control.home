@@ -4,10 +4,10 @@
     "panel_left": [
       {
         "id": "swt_ext_terr_bnb",
-        "cmd_id": "9898",
-        "cmd_id_tog": "1",
-        "cmd_id_on": "",
-        "cmd_id_off": "",
+        "cmd_id": "1317",
+        "cmd_id_tog": "0",
+        "cmd_id_on": "1317",
+        "cmd_id_off": "1318",
         "refresh_id": "1315",
         "name": "Terrasse BnB"
       },
