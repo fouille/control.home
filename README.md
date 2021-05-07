@@ -4,7 +4,8 @@ Home Control Interface for Jeedom
 Actualy under development. 
 
 # Installation 
-git clone <branch>
+<code>git clone <branch></code>
 
-Edit /data/data.json with yours id data modules (find in your Jeedom)
-Edit index.html JS temp connector "Jeedom_url" and "Jeedom_API"
+Edit <code>/data/data.json</code> with yours id data modules (find in your Jeedom)
+
+Edit <code>index.html</code> JS temp connector <code>Jeedom_url</code> and <code>Jeedom_API</code>
