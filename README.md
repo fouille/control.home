@@ -4,7 +4,7 @@ Home Control Interface for Jeedom
 Actualy under development. 
 
 # Installation 
-<code>git clone <branch></code>
+<code>git clone https://github.com/fouille/control.home</code>
 
 Edit <code>/data/data.json</code> with yours id data modules (find in your Jeedom)
 
