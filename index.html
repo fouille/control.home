@@ -271,6 +271,10 @@
             $("#panel_ext").toggle(800);
             $("#panel_bnb").toggle(800);
         });
+        //refresh page
+        $("#logo").on('click', function(){
+          document.location.reload();
+        })
         // click modules on/off
         $(document).on('click','a[id^="swt_"]', function (e) {
             e.preventDefault();
@@ -295,6 +299,8 @@
             })
         })
     });
+    //functions
+    //Date and time
     function date_time() {
         $(".dtime").text(moment().locale('fr').format('LLLL'));
     }
@@ -374,21 +380,6 @@
                 });
             }
         });
-
-        // temp_state(1564, "temp_salon");
-        // temp_state(1565, "hum_salon");
-        // temp_state(1559, "temp_room");
-        // temp_state(1560, "hum_room");
-        // temp_state(1573, "temp_bnb_h");
-        // temp_state(1582, "temp_bnb_b");
-        // temp_state(1574, "hum_bnb_h");
-        // temp_state(1583, "hum_bnb_b");
-        //
-        // switch_state(1383, "swt_cuisine");
-        // switch_state(13, "swt_salon");
-        // switch_state(1320, "swt_sdb");
-        // switch_state(1166, "swt_bnb_cum");
-        // switch_state(871, "swt_room")
     }
     //update modules function
     function temp_state(cmd_id, switch_id) {
