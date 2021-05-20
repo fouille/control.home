@@ -382,6 +382,7 @@
         });
     }
     //update modules function
+    //temperature or humidity
     function temp_state(cmd_id, switch_id) {
         $.ajax({
             url: "http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+cmd_id,
@@ -393,6 +394,7 @@
             }
         })
     }
+    //switch on/off or state 
     function switch_state(refresh_id, cmd_id_tog, cmd_id_on, cmd_id_off, switch_id){
         $.ajax({
             url: "http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+refresh_id,
