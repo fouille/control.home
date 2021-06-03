@@ -4,7 +4,7 @@ Theme URI: http://www.ansonika.com/wilio/
 Author: Ansonika
 Author URI: http://themeforest.net/user/Ansonika/
 
-[Table of contents] 
+[Table of contents]
 
 1. SITE STRUCTURE and TYPOGRAPHY
 - 1.1 Typography
@@ -458,6 +458,16 @@ a#logo {
   display: block;
   height: 35px;
   color: white;
+  font-weight: bold;
+}
+a#meteo {
+  position: absolute;
+  left: 15px;
+  top: 35px;
+  display: block;
+  height: 35px;
+  color: white;
+  font-size: small;
 }
 @media (max-width: 991px) {
   a#logo {

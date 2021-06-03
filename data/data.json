@@ -3,6 +3,13 @@
     "jeedom_ip": "192.168.8.200",
     "jeedom_apikey": "lLmv2M8w7EdLRMuW9UgdwOBch37NRElb"
   },
+  "dmeteo": {
+    "active": "1",
+    "condition_id": "62",
+    "temperature_id": "53",
+    "wind_speed_id": "56",
+    "pressure_id": "55"
+  },
   "bloc_right": {
     "name": "Extérieur",
     "panel_left": [

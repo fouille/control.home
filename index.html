@@ -18,6 +18,7 @@
     <link href="css/vendors.css" rel="stylesheet">
     <!-- YOUR CUSTOM CSS -->
     <link href="css/custom.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -34,6 +35,7 @@
         <div class="col-lg-6 content-left">
             <div class="content-left-wrapper">
                 <a href="index.html" id="logo" class="dtime"></a>
+                <a href="#" id="meteo" class="dmeteo"></a>
                 <div id="social">
                     <ul>
                         <li><a href="#" id="open_bnb" class="btn btn-primary">+</a></li>
@@ -83,12 +85,15 @@
 <script src="js/moment-with-locales.js"></script>
 <script src="js/velocity.min.js"></script>
 <script src="js/functions.js"></script>
+<script src="https://kit.fontawesome.com/2f9d6edd2f.js" crossorigin="anonymous"></script>
 
 <script>
     $(document).ready(function() {
         //date-time
         date_time();
+        dmeteo(localStorage.getItem("meteo_active"), localStorage.getItem("condition_id"), localStorage.getItem("temperature_id"), localStorage.getItem("wind_speed_id"), localStorage.getItem("pressure_id"));
         setInterval(date_time, 1000);
+        setInterval(dmeteo, 120000);
         //start call for create and update blocks
         $.ajax({
             url: "data/data.json",
@@ -105,6 +110,15 @@
                 //store global conf
                 localStorage.setItem('Jeedom_url', e.global.jeedom_ip);
                 localStorage.setItem('Jeedom_API', e.global.jeedom_apikey);
+                //store data meteo condition_id, temperature_id, wind_speed_id, pressure_id
+                if (e.dmeteo.active === '1') {
+                  localStorage.setItem('meteo_active', e.dmeteo.active);
+                  localStorage.setItem('condition_id', e.dmeteo.condition_id);
+                  localStorage.setItem('temperature_id', e.dmeteo.temperature_id);
+                  localStorage.setItem('wind_speed_id', e.dmeteo.wind_speed_id);
+                  localStorage.setItem('pressure_id', e.dmeteo.pressure_id);
+                }
+
                 //naming blocks
                 $(".bloc_left_name").text(e.bloc_left.name);
                 $(".bloc_right_name").text(e.bloc_right.name);
@@ -275,6 +289,7 @@
         $("#logo").on('click', function(){
           document.location.reload();
         })
+
         // click modules on/off
         $(document).on('click','a[id^="swt_"]', function (e) {
             e.preventDefault();
@@ -303,6 +318,19 @@
     //Date and time
     function date_time() {
         $(".dtime").text(moment().locale('fr').format('LLLL'));
+    }
+    //meteo
+    function dmeteo(active, condition_id, temperature_id, wind_speed_id, pressure_id){
+      if (active === '1') {
+        $.getJSON("http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php","apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+"%5B"+condition_id+","+temperature_id+","+wind_speed_id+","+pressure_id+"%5D")
+          .done(function (e) {
+            console.log(e);
+            $(".dmeteo").html(e[condition_id]+' <i class="fas fa-thermometer-three-quarters fa-sm"> '+e[temperature_id]+'°c</i> <i class="fas fa-wind fa-sm"> '+e[wind_speed_id]+' km/h</i> <i class="fas fa-tachometer-alt fa-sm"> '+e[pressure_id]+' mb</i>');
+          });
+      }else {
+        $(".dmeteo").html("");
+      }
+
     }
     //update page modules
     function update_page() {
@@ -394,7 +422,7 @@
             }
         })
     }
-    //switch on/off or state 
+    //switch on/off or state
     function switch_state(refresh_id, cmd_id_tog, cmd_id_on, cmd_id_off, switch_id){
         $.ajax({
             url: "http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+refresh_id,
