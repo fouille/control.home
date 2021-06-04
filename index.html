@@ -108,14 +108,9 @@
                 //store global conf
                 localStorage.setItem('Jeedom_url', e.global.jeedom_ip);
                 localStorage.setItem('Jeedom_API', e.global.jeedom_apikey);
-                //store data meteo condition_id, temperature_id, wind_speed_id, pressure_id
+                //data meteo condition_id, temperature_id, wind_speed_id, pressure_id
                 if (e.dmeteo.active === '1') {
-                  localStorage.setItem('meteo_active', e.dmeteo.active);
-                  localStorage.setItem('condition_id', e.dmeteo.condition_id);
-                  localStorage.setItem('temperature_id', e.dmeteo.temperature_id);
-                  localStorage.setItem('wind_speed_id', e.dmeteo.wind_speed_id);
-                  localStorage.setItem('pressure_id', e.dmeteo.pressure_id);
-                  dmeteo(e.dmeteo.active, e.dmeteo.condition_id, e.dmeteo.temperature_id, e.dmeteo.wind_speed_id, e.dmeteo.pressure_id);
+                  dmeteo(e.dmeteo.condition_id, e.dmeteo.temperature_id, e.dmeteo.wind_speed_id, e.dmeteo.pressure_id);
                 }
 
                 //naming blocks
@@ -319,22 +314,18 @@
         $(".dtime").text(moment().locale('fr').format('LLLL'));
     }
     //meteo
-    function dmeteo(active, condition_id, temperature_id, wind_speed_id, pressure_id){
-      if (active === '1') {
+    function dmeteo(condition_id, temperature_id, wind_speed_id, pressure_id){
         $.getJSON("http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php","apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+"%5B"+condition_id+","+temperature_id+","+wind_speed_id+","+pressure_id+"%5D")
           .done(function (e) {
             //console.log(e);
             $(".dmeteo").html(e[condition_id]+' <i class="fas fa-thermometer-three-quarters fa-sm"></i> '+e[temperature_id]+'°c <i class="fas fa-wind fa-sm"></i> '+e[wind_speed_id]+' km/h <i class="fas fa-tachometer-alt fa-sm"></i> '+e[pressure_id]+' mb');
           });
-      }else {
-        $(".dmeteo").html("");
-      }
 
     }
     //update page modules
     function update_page() {
         $.ajax({
-            url: "data/data.json?v=0.1.7",
+            url: "data/data.json?v=0.2.1",
             type: "GET",
             dataType: "json",
             success: function (e) {
@@ -345,7 +336,10 @@
                 var f = e.bloc_cached.panel_left;
                 var g = e.bloc_cached.panel_right;
 
-                dmeteo(localStorage.getItem("meteo_active"), localStorage.getItem("condition_id"), localStorage.getItem("temperature_id"), localStorage.getItem("wind_speed_id"), localStorage.getItem("pressure_id"));
+                //data meteo condition_id, temperature_id, wind_speed_id, pressure_id
+                if (e.dmeteo.active === '1') {
+                  dmeteo(e.dmeteo.condition_id, e.dmeteo.temperature_id, e.dmeteo.wind_speed_id, e.dmeteo.pressure_id);
+                }
 
                 $.each(r, function(key,value) {
                     let n = value.id.startsWith("swt");
