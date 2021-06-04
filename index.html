@@ -99,9 +99,6 @@
             url: "data/data.json",
             type: "GET",
             dataType: "json",
-            beforeSend: function (){
-              localStorage.clear();
-            },
             success: function (e) {
                 let append = '';
                 var r = e.bloc_right.panel_left;
