@@ -42,7 +42,7 @@
                     </ul>
                 </div>
                 <div>
-                    <figure><img src="img/info_graphic_1.svg" alt="" class="img-fluid"></figure>
+                    <figure id="bloc_left_picture"></figure>
                     <h2 class="bloc_left_name"></h2>
                     <div class="col-lg-6 float-left add_modules_l_left"></div>
                     <div class="col-lg-6 float-right add_modules_l_right"></div>
@@ -57,7 +57,7 @@
                 <div id="middle-wizard">
                     <div class="step">
                         <div id="panel_ext">
-                            <figure><img src="img/info_graphic_2.svg" alt="" class="img-fluid"></figure>
+                            <figure id="bloc_right_picture"></figure>
                             <h2 class="bloc_right_name"></h2>
                             <div class="col-lg-6 float-left add_modules_r_left"></div>
                             <div class="col-lg-6 float-right add_modules_r_right"></div>
@@ -67,7 +67,7 @@
                     <!-- /step-->
                     <div class="step">
                         <div id="panel_bnb">
-                            <figure><img src="img/info_graphic_3.svg" alt="" class="img-fluid"></figure>
+                            <figure id="bloc_cached_picture"></figure>
                             <h2 class="bloc_cached_name"></h2>
                             <div class="col-lg-6 float-left add_modules_c_left"></div>
                             <div class="col-lg-6 float-right add_modules_c_right"></div>
@@ -83,8 +83,7 @@
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/moment-with-locales.js"></script>
-<script src="js/velocity.min.js"></script>
-<script src="js/functions.js"></script>
+<script src="js/functions.js?1001"></script>
 <script src="https://kit.fontawesome.com/2f9d6edd2f.js" crossorigin="anonymous"></script>
 
 <script>
@@ -98,6 +97,7 @@
             type: "GET",
             dataType: "json",
             success: function (e) {
+              console.log(e);
                 let append = '';
                 var r = e.bloc_right.panel_left;
                 var d = e.bloc_right.panel_right;
@@ -117,6 +117,11 @@
                 $(".bloc_left_name").text(e.bloc_left.name);
                 $(".bloc_right_name").text(e.bloc_right.name);
                 $(".bloc_cached_name").text(e.bloc_cached.name);
+
+                //picture blocks
+                $("#bloc_left_picture").append('<img src="'+e.bloc_left.picture+'" alt="" class="img-fluid">');
+                $("#bloc_right_picture").append('<img src="'+e.bloc_right.picture+'" alt="" class="img-fluid">');
+                $("#bloc_cached_picture").append('<img src="'+e.bloc_cached.picture+'" alt="" class="img-fluid">');
 
                 //right block
                 $.each(r, function(key,value) {

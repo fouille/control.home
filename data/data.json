@@ -4,13 +4,14 @@
     "jeedom_apikey": "lLmv2M8w7EdLRMuW9UgdwOBch37NRElb"
   },
   "dmeteo": {
-    "active": "1",
+    "active": "0",
     "condition_id": "62",
     "temperature_id": "53",
     "wind_speed_id": "56",
     "pressure_id": "55"
   },
   "bloc_right": {
+    "picture": "",
     "name": "Extérieur",
     "panel_left": [
       {
@@ -72,7 +73,8 @@
     ]
   },
   "bloc_left": {
-    "name" : "Intérieur",
+    "picture": "",
+    "name": "Intérieur",
     "panel_left": [
       {
         "id": "swt_salon",
@@ -135,6 +137,7 @@
     ]
   },
   "bloc_cached": {
+    "picture": "",
     "name": "AirBnB",
     "panel_left": [
       {
