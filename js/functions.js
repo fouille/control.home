@@ -31,6 +31,15 @@
 			//date-time
 			date_time();
 			setInterval(date_time, 1000);
+			//screensaver
+			let s_saver;
+			$(document).on('mousemove keydown click',function() {
+			  clearTimeout(s_saver);
+			  s_saver = setTimeout(function(){
+			      $('.blackscreen').fadeIn("slow");
+			  }, 30000);
+			  $('.blackscreen').fadeOut("slow");
+			});
 			//start call for create and update blocks
 			$.ajax({
 					url: "data/data.json",
