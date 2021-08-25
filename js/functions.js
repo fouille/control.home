@@ -238,7 +238,7 @@
 					let cmd_id_tog = $(this).attr("cmd-id-tog");
 					let cmd_id_on = $(this).attr("cmd-id-on");
 					let cmd_id_off = $(this).attr("cmd-id-off");
-					
+
 					$(this).children().append('<div data-loader="circle-side"></div>');
 					$.ajax({
 							url: "http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+cmd_id,
@@ -260,7 +260,8 @@
 	//functions
 	//Date and time
 	function date_time() {
-			$(".dtime").text(moment().locale('fr').format('LLLL'));
+			$(".dtime").text(moment().tz("Europe/Paris").locale('fr').format('LLLL'));
+			//list timezone https://gist.github.com/diogocapela/12c6617fc87607d11fd62d2a4f42b02a
 	}
 	//meteo
 	function dmeteo(condition_id, temperature_id, wind_speed_id, pressure_id){
