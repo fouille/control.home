@@ -12,6 +12,7 @@
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
     <!-- BASE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/menu.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -79,12 +80,33 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="modal_level" tabindex="-1" aria-labelledby="modal_levelLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal_levelLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <input type="range" class="form-control-range"  min="0" max="100" step="1" id="control-level-light">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- COMMON SCRIPTS -->
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
 <script src="js/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 <script src="js/moment-with-locales.js"></script>
 <script src="js/moment-timezone-with-data.js"></script>
-<script src="js/functions.min.js?1018"></script>
+<script src="js/functions.min.js?1031"></script>
 <script src="https://kit.fontawesome.com/2f9d6edd2f.js" crossorigin="anonymous"></script>
 
 </body>

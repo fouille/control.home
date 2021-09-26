@@ -103,6 +103,20 @@
         "temp_refresh_id": "1595",
         "hum_id": "hum_home_kitchen",
         "hum_refresh_id": "1596"
+      },
+      {
+        "id": "swt_veilleuses",
+        "cmd_id": "1939",
+        "cmd_id_tog": "0",
+        "cmd_id_on": "1939",
+        "cmd_id_off": "1940",
+        "refresh_id": "1941",
+        "name": "Veilleuse",
+        "temp": "0",
+        "temp_id": "",
+        "temp_refresh_id": "",
+        "hum_id": "",
+        "hum_refresh_id": ""
       }
     ],
     "panel_right": [
@@ -119,6 +133,18 @@
         "temp_refresh_id": "1559",
         "hum_id": "hum_room",
         "hum_refresh_id": "1560"
+      },
+      {
+        "id": "swt_bar",
+        "cmd_id": "1976",
+        "cmd_level": "1",
+        "cmd_level_id": "1978",
+        "cmd_level_info": "1983",
+        "cmd_id_tog": "0",
+        "cmd_id_on": "1976",
+        "cmd_id_off": "1977",
+        "refresh_id": "1984",
+        "name": "Bar"
       },
       {
         "id": "swt_sdb",

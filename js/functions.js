@@ -28,6 +28,7 @@
 	}
 
 	$(document).ready(function() {
+			jQuery.noConflict();
 			//date-time
 			date_time();
 			setInterval(date_time, 1000);
@@ -75,7 +76,7 @@
 							//right block
 							$.each(r, function(key,value) {
 
-									append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
+									append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" cmd-level="'+value.cmd_level+'" cmd-level-id="'+value.cmd_level_id+'" cmd-level-info="'+value.cmd_level_info+'">\n' +
 											'                            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">\n' +
 											'                                <div class="card-body">\n' +
 											'                                    <h5 class="card-title">'+value.name+'</h5>\n' +
@@ -88,7 +89,7 @@
 									let n = value.id.startsWith("swt");
 									let nn = value.id.startsWith("temp");
 									if (n === true){
-											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
+											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id, value.cmd_level);
 									}
 									if (nn === true){
 											temp_state(value.refresh_id, value.id);
@@ -96,7 +97,7 @@
 
 							});
 							$.each(d, function(key,value) {
-									append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
+									append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" cmd-level="'+value.cmd_level+'" cmd-level-id="'+value.cmd_level_id+'" cmd-level-info="'+value.cmd_level_info+'">\n' +
 											'                            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">\n' +
 											'                                <div class="card-body">\n' +
 											'                                    <h5 class="card-title">'+value.name+'</h5>\n' +
@@ -108,7 +109,7 @@
 									let n = value.id.startsWith("swt");
 									let nn = value.id.startsWith("temp");
 									if (n === true){
-											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
+											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id, value.cmd_level);
 									}
 									if (nn === true){
 											temp_state(value.refresh_id, value.id);
@@ -121,7 +122,7 @@
 									if (value.temp === "1"){
 											append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>%</small>';
 									}
-									append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
+									append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" cmd-level="'+value.cmd_level+'" cmd-level-id="'+value.cmd_level_id+'" cmd-level-info="'+value.cmd_level_info+'">\n' +
 											'                            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">\n' +
 											'                                <div class="card-body">\n' +
 											'                                    <h5 class="card-title">'+value.name+'</h5>\n' +
@@ -132,7 +133,7 @@
 									$(".add_modules_l_left").append(append);
 									let n = value.id.startsWith("swt");
 									if (n === true){
-											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
+											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id, value.cmd_level, value.cmd_level_info);
 									}
 									if (value.temp === "1"){
 											temp_state(value.temp_refresh_id, value.temp_id);
@@ -144,7 +145,7 @@
 									if (value.temp === "1"){
 											append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>%</small>';
 									}
-									append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
+									append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" cmd-level="'+value.cmd_level+'" cmd-level-id="'+value.cmd_level_id+'" cmd-level-info="'+value.cmd_level_info+'">\n' +
 											'                            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">\n' +
 											'                                <div class="card-body">\n' +
 											'                                    <h5 class="card-title">'+value.name+'</h5>\n' +
@@ -155,7 +156,7 @@
 									$(".add_modules_l_right").append(append);
 									let n = value.id.startsWith("swt");
 									if (n === true){
-											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
+											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id, value.cmd_level, value.cmd_level_info);
 									}
 									if (value.temp === "1"){
 											temp_state(value.temp_refresh_id, value.temp_id);
@@ -169,7 +170,7 @@
 									if (value.temp === "1"){
 											append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>%</small>';
 									}
-									append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
+									append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" cmd-level="'+value.cmd_level+'" cmd-level-id="'+value.cmd_level_id+'" cmd-level-info="'+value.cmd_level_info+'" >\n' +
 											'                            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">\n' +
 											'                                <div class="card-body">\n' +
 											'                                    <h5 class="card-title">'+value.name+'</h5>\n' +
@@ -180,7 +181,7 @@
 									$(".add_modules_c_left").append(append);
 									let n = value.id.startsWith("swt");
 									if (n === true){
-											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
+											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id, value.cmd_level, value.cmd_level_info);
 									}
 									if (value.temp === "1"){
 											temp_state(value.temp_refresh_id, value.temp_id);
@@ -192,7 +193,7 @@
 									if (value.temp === "1"){
 											append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>%</small>';
 									}
-									append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" >\n' +
+									append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" cmd-level="'+value.cmd_level+'" cmd-level-id="'+value.cmd_level_id+'" cmd-level-info="'+value.cmd_level_info+'">\n' +
 											'                            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">\n' +
 											'                                <div class="card-body">\n' +
 											'                                    <h5 class="card-title">'+value.name+'</h5>\n' +
@@ -203,7 +204,7 @@
 									$(".add_modules_c_right").append(append);
 									let n = value.id.startsWith("swt");
 									if (n === true){
-											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
+											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id, value.cmd_level, value.cmd_level_info);
 									}
 									if (value.temp === "1"){
 											temp_state(value.temp_refresh_id, value.temp_id);
@@ -247,23 +248,39 @@
 					let cmd_id_tog = $(this).attr("cmd-id-tog");
 					let cmd_id_on = $(this).attr("cmd-id-on");
 					let cmd_id_off = $(this).attr("cmd-id-off");
+					let cmd_level = $(this).attr("cmd-level");
+					let cmd_level_id = $(this).attr("cmd-level-id");
+					let cmd_level_info = $(this).attr("cmd-level-info");
+					let data_level = $(this).data("level");
+					if ($(this).attr("cmd-level") == 1) {
 
-					$(this).children().append('<div data-loader="circle-side"></div>');
-					$.ajax({
-							url: "http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+cmd_id,
-							type: "GET",
-							dataType: "json",
-							success: function (r) {
-									if (r == 0){
-											setTimeout(function(){
-												switch_state (refresh_id, cmd_id_tog, cmd_id_on, cmd_id_off, swt_id);
-											},700);
-									}
-									else{
-											$("#switch").text("error")
-									}
-							}
-					})
+						$('#modal_level').modal('show');
+						$("#modal_levelLabel").html("Sélectionnez l'intensité")
+						$("#control-level-light").attr("data-cmd-level-id", cmd_level_id).val(data_level);
+						$("#control-level-light").attr("data-swt-id", swt_id);
+					}else {
+						$(this).children().append('<div data-loader="circle-side"></div>');
+						$.ajax({
+								url: "http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+cmd_id,
+								type: "GET",
+								dataType: "json",
+								success: function (r) {
+									//maybe all equiments return 0 value, but if a virtual maybe you must modify return value state.
+										if (r == 0){
+												setTimeout(function(){
+													switch_state (refresh_id, cmd_id_tog, cmd_id_on, cmd_id_off, swt_id, cmd_level, cmd_level_info);
+												},900);
+										}
+										else{
+												$("#switch").text("error")
+										}
+								}
+						})
+					}
+			})
+			$("#control-level-light").on('change', function(e){
+				update_level($(this).data("cmd-level-id"), $(this).val());
+				$("#"+$(this).data("swt-id")+" .card-text").text("Allumé "+ $(this).val() +"%");
 			})
 	});
 	//functions
@@ -281,10 +298,14 @@
 				});
 
 	}
+	//update level light
+	function update_level(cmd_level_id, level_set) {
+		$.get("http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+cmd_level_id+"&slider="+level_set);
+	}
 	//update page modules
 	function update_page() {
 			$.ajax({
-					url: "data/data.json?v=0.2.1",
+					url: "data/data.json?v=0.2.2",
 					type: "GET",
 					dataType: "json",
 					success: function (e) {
@@ -303,7 +324,7 @@
 							$.each(r, function(key,value) {
 									let n = value.id.startsWith("swt");
 									if (n === true){
-											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
+											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id, value.cmd_level, value.cmd_level_info);
 									}
 									if (value.temp === "1"){
 											temp_state(value.temp_refresh_id, value.temp_id);
@@ -313,7 +334,7 @@
 							$.each(d, function(key,value) {
 									let n = value.id.startsWith("swt");
 									if (n === true){
-											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
+											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id, value.cmd_level, value.cmd_level_info);
 									}
 									if (value.temp === "1"){
 											temp_state(value.temp_refresh_id, value.temp_id);
@@ -323,7 +344,7 @@
 							$.each(b, function(key,value) {
 									let n = value.id.startsWith("swt");
 									if (n === true){
-											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
+											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id, value.cmd_level, value.cmd_level_info);
 									}
 									if (value.temp === "1"){
 											temp_state(value.temp_refresh_id, value.temp_id);
@@ -333,7 +354,7 @@
 							$.each(c, function(key,value) {
 									let n = value.id.startsWith("swt");
 									if (n === true){
-											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
+											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id, value.cmd_level, value.cmd_level_info);
 									}
 									if (value.temp === "1"){
 											temp_state(value.temp_refresh_id, value.temp_id);
@@ -343,7 +364,7 @@
 							$.each(f, function(key,value) {
 									let n = value.id.startsWith("swt");
 									if (n === true){
-											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
+											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id, value.cmd_level, value.cmd_level_info);
 									}
 									if (value.temp === "1"){
 											temp_state(value.temp_refresh_id, value.temp_id);
@@ -353,7 +374,7 @@
 							$.each(g, function(key,value) {
 									let n = value.id.startsWith("swt");
 									if (n === true){
-											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id);
+											switch_state(value.refresh_id, value.cmd_id_tog, value.cmd_id_on, value.cmd_id_off, value.id, value.cmd_level, value.cmd_level_info);
 									}
 									if (value.temp === "1"){
 											temp_state(value.temp_refresh_id, value.temp_id);
@@ -377,7 +398,7 @@
 			})
 	}
 	//switch on/off or state
-	function switch_state(refresh_id, cmd_id_tog, cmd_id_on, cmd_id_off, switch_id){
+	function switch_state(refresh_id, cmd_id_tog, cmd_id_on, cmd_id_off, switch_id, cmd_level, cmd_level_info){
 			$.ajax({
 					url: "http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+refresh_id,
 					type: "GET",
@@ -392,7 +413,17 @@
 							}
 							if (r == 1){
 									$("#"+switch_id+" .card").attr("style", "background-color: #d80075!important");
-									$("#"+switch_id+" .card-text").text("Allumé");
+									if (cmd_level === "1") {
+										let cmd_level_info_result = level_state(cmd_level_info);
+										cmd_level_info_result.then(function(re){
+											$("#"+switch_id).attr("cmd-level", "1");
+											$("#"+switch_id).attr("data-level", re);
+											$("#"+switch_id+" .card-text").text("Allumé "+ re +"%");
+										});
+									}else {
+										$("#"+switch_id+" .card-text").text("Allumé");
+									}
+
 									if (cmd_id_tog === "0"){
 											$("#"+switch_id).attr("cmd-id", cmd_id_off);
 									}
@@ -400,6 +431,14 @@
 							$('[data-loader="circle-side"]').fadeOut();
 					}
 			})
+	}
+	//get level for light
+	function level_state(cmd_level_info) {
+			let get = $.get("http://"+localStorage.getItem('Jeedom_url')+"/core/api/jeeApi.php?apikey="+localStorage.getItem('Jeedom_API')+"&type=cmd&id="+cmd_level_info, function(dataa){
+				let result = Number(dataa).toFixed(2);
+				return result;
+			});
+			return get;
 	}
 
 })(window.jQuery);
