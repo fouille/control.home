@@ -209,6 +209,21 @@
         "temp_refresh_id": "1582",
         "hum_id": "hum_bnb_rdc",
         "hum_refresh_id": "1583"
+      },
+      {
+        "name": "Clim",
+        "is_climate": "1",
+        "id": "swt_climate_bnb",
+        "cmd_id": "2063",
+        "cmd_id_tog": "0",
+        "cmd_id_on": "2063",
+        "cmd_id_off": "2064",
+        "refresh_id": "2059",
+        "temp": "1",
+        "temp_id": "temp_climate_bnb",
+        "temp_refresh_id": "2060",
+        "hum_refresh_id": "2061",
+        "hum_id": "hum_prog_climate_bnb"
       }
     ]
   }
