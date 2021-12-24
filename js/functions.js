@@ -119,9 +119,10 @@
 							//left block
 							$.each(b, function(key,value) {
 									var append_temp = '';
+									let fontawesome = '';
 									if (value.is_climate === "1") {
 										append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>°c Prog.</small>';
-
+										fontawesome = value.climate_fontawesome;
 									}else {
 										append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>%</small>';
 									}
@@ -145,9 +146,10 @@
 							});
 							$.each(c, function(key,value) {
 									var append_temp = '';
+									let fontawesome = '';
 									if (value.is_climate === "1") {
 										append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>°c Prog.</small>';
-
+										fontawesome = value.climate_fontawesome;
 									}else {
 										append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>%</small>';
 									}
@@ -173,11 +175,12 @@
 							//cached block
 							$.each(f, function(key,value) {
 									var append_temp = '';
+									let fontawesome = '';
 									console.log(value);
 									if (value.temp === "1"){
 										if (value.is_climate === "1") {
 											append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>°c Prog.</small>';
-
+											fontawesome = value.climate_fontawesome;
 										}else {
 											append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>%</small>';
 										}
@@ -202,11 +205,12 @@
 							});
 							$.each(g, function(key,value) {
 									var append_temp = '';
+									let fontawesome = '';
 									console.log(value);
 									if (value.temp === "1"){
 										if (value.is_climate === "1") {
 											append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>°c Prog.</small>';
-
+											fontawesome = value.climate_fontawesome;
 										}else {
 											append_temp = '<small><span aria-hidden="true" temp-cmd-id="'+value.temp_refresh_id+'" id="'+value.temp_id+'"></span>°c / <span aria-hidden="true" hum-cmd-id="'+value.hum_refresh_id+'" id="'+value.hum_id+'"></span>%</small>';
 										}
@@ -214,7 +218,7 @@
 									append = '<a href="#" id="'+value.id+'" cmd-id-tog="'+value.cmd_id_tog+'" cmd-id-on="'+value.cmd_id_on+'" cmd-id-off="'+value.cmd_id_off+'" cmd-id="'+value.cmd_id+'" refresh-id="'+value.refresh_id+'" cmd-level="'+value.cmd_level+'" cmd-level-id="'+value.cmd_level_id+'" cmd-level-info="'+value.cmd_level_info+'">\n' +
 											'                            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">\n' +
 											'                                <div class="card-body">\n' +
-											'                                    <h5 class="card-title">'+value.name+'</h5>\n' +
+											'                                    <h5 class="card-title"><i class="'+fontawesome+'"></i> '+value.name+'</h5>\n' +
 											'                                    <p class="card-text text-white"></p>\n' + append_temp +
 											'                                </div>\n' +
 											'                            </div>\n' +

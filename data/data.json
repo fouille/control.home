@@ -213,6 +213,7 @@
       {
         "name": "Clim",
         "is_climate": "1",
+        "climate_fontawesome": "fas fa-wind",
         "id": "swt_climate_bnb",
         "cmd_id": "2063",
         "cmd_id_tog": "0",
